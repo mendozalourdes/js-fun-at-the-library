@@ -1,27 +1,8 @@
-// book.js
-//   createTitle
-//     ✓ should be a function
-//     ✓ should take in a title and return a modified title
-//     ✓ should be able to create many modified titles
-//   buildMainCharacter
-//     - should be a function (comment the function back into the module.exports object in book.js)
-//     - should create a character object
-//
 
+function createTitle(title) {
+  return `The ${title}`
+};
 
-function createTitle() {
-  var bookIdea = "Storm's Awakening";
-
-  return `The ${bookIdea}`
-}
-
-var sushiTitle = "Dancing Sushi";
-var dragonTitle = "Dragon in the Summer";
-var ghostTitle = "Teenage Ghoul";
-
-function createTitle(book) {
-  return `The ${book}`
-}
 
 
 function buildMainCharacter(name, age, pronouns) {
@@ -34,12 +15,50 @@ function buildMainCharacter(name, age, pronouns) {
 };
 
 
+function saveReview(text, array) {
+  var repeats = false
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === text) {
+      repeats = true
+    }
+  }
+  if (repeats === false) {
+    array.push(text)
+  }
+};
+
+
+function calculatePageCount(bookTitle) {
+  var bookPageCount = bookTitle.length * 20;
+  return bookPageCount
+};
+
+
+function writeBook(title, character, genre) {
+  var bookObject = {
+    title: title,
+    mainCharacter: character,
+    pageCount: calculatePageCount(title),
+    genre: genre,
+  }
+  return bookObject;
+};
+
+function editBook(book) {
+  book.pageCount = book.pageCount * .75;
+}
+
+
+
+
+
+
 
 module.exports = {
   createTitle,
   buildMainCharacter,
-  // saveReview,
-  // calculatePageCount,
-  // writeBook,
-  // editBook
+  saveReview,
+  calculatePageCount,
+  writeBook,
+  editBook
 }
