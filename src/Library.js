@@ -1,19 +1,4 @@
 
-
-
-//This function is supposed to create a function called createLibrary
-//this function should be able to return an empty object with a
-// property of name where the library's name will be in there as a string
-// that should be prompted by calling the variable (like denverLibrary)
-// which then pushes out an empty-ish object. This object will then have to add the
-//parameter/argument into the array of library names into that object.
-//I'm not sure how to get that object to be named the same as the the variable
-//where it is supposed to begin.
-//it's possible that the function will need to create individual functions for each
-//variable that is called.
-
-
-
 function createLibrary(libraryName) {
 var library = {
     name: [libraryName],
@@ -37,13 +22,18 @@ if (book.genre === "fantasy") {
   }
 };
 
-
+//This function isn't working yet.
+// Need to figure out a way that will run the fuction again, and update the arrays
+//after the function has run once. Terminal shows that the second function
+//didn't run since the true crime book is still there.
 function checkoutBook(library, bookName, genre) {
-
+for (var i = 0; i <library.shelves.length ; i++) {
+  if (genre === library.shelves.genre && bookName === library.shelves.title) {
+    library.shelves.splice(i, 1)
+      }
+      return library.shelves
+  }   return `You have now checked out ${bookName} from the ${library.name[i]}`
 };
-
-return `You have now checked out ${bookName} from the ${library}`
-
 
 
 
@@ -67,5 +57,5 @@ return `You have now checked out ${bookName} from the ${library}`
 module.exports = {
   createLibrary,
   addBook,
-  // checkoutBook
+  checkoutBook
 };
