@@ -17,35 +17,23 @@ if (book.genre === "fantasy") {
   library.shelves.fantasy.push(book);
 } else if (book.genre === "nonFiction") {
   library.shelves.nonFiction.push(book);
-} else if (book.genre === "nonFiction") {
-  library.shelves.fiction.push(book);
+} else {
+    return library.shelves.fiction.push(book);
   }
 };
 
-//This function isn't working yet.
-// Need to figure out a way that will run the fuction again, and update the arrays
-//after the function has run once. Terminal shows that the second function
-//didn't run since the true crime book is still there.
-function checkoutBook(library, bookName, genre) {
-for (var i = 0; i <library.shelves.length ; i++) {
-  if (genre === library.shelves.genre && bookName === library.shelves.title) {
-    library.shelves.splice(i, 1)
-      }
-      return library.shelves
-  }   return `You have now checked out ${bookName} from the ${library.name[i]}`
+
+
+function checkoutBook(library, title, genre) {
+  for (var i = 0; i < library.shelves[genre].length; i++) {
+    if (library.shelves[genre][i].title === title) {
+      library.shelves[genre].splice(i, 1);
+      return `You have now checked out ${title} from the ${library.name}`;
+    }
+  }
+  return `Sorry, there are currently no copies of ${title} available at the ${library.name}`
+
 };
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
